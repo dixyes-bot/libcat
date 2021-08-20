@@ -19,9 +19,9 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - os: "Linux"
+          - os: "linux"
             arch: "ARM64"
-          - os: "Linux"
+          - os: "linux"
             arch: "mips64el"
     steps:
       - name: Build libcat and Run tests
