@@ -5,6 +5,9 @@ on:
   schedule:
     - cron: '42 3 * * *'
 
+env:
+  GIT_REF: ci
+
 jobs:
   multiarch-tests:
     # only libcat organization have these self-hosted runners
@@ -30,9 +33,8 @@ jobs:
           mkdir -p libcat ${TEST_TMP_PATH}
           echo "::group::Clone libcat"
           BARE_GIT=/usr/share/runner/libcat.git
-          GIT_REF='${{ github.ref }}'
-          GIT_REF=${GIT_REF##*/}
-          #GIT_REF=ci
+          #GIT_REF='${{ github.ref }}'
+          #GIT_REF=${GIT_REF##*/}
           GIT_REPO='${{ github.repository }}'
           #GIT_REPO=libcat/libcat
           if [ ! -d "${BARE_GIT}" ]
